@@ -4,18 +4,71 @@ var bio = {
 	"name": "Andre",
 	"role": "Engineer",
 	"contacts": {
-		"mobile": "732-307-8997",
-    	"email": "andreehrlich2018@u.northwestern.edu",
+		"mobile": "xxx-xxx-xxxx",
+    	"email": "xxxxxxx2018@u.northwestern.edu",
     	"github": "DoctaDocta",
-    	"twitter": "none",
+    	"blog": "none",
     	"location": "Chicago"
 	},
 
 	"welcomeMessage": "Hello, thanks for visiting my website!",
 	"skills": ["matlab", "python", "html", "css", "javascript"],
-	"biopic": "http://dealbreaker.com/uploads/2015/04/Musky.jpg",
-	"display": "function"
+	"biopic": "./images/profilepic.jpg"
 };
+
+bio.display = function() {
+	var formattedHeaderName = HTMLheaderName.replace("%data%", bio.name);
+	$("#header").append(formattedHeaderName);
+
+	var formattedHeaderRole = HTMLheaderRole.replace("%data%", bio.role);
+	$("#header").append(formattedHeaderRole);
+
+	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	$("#topContacts").append(formattedMobile);
+
+	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email)
+	$(".flex-item:last").append(formattedEmail);
+
+	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+	$(".flex-item:last").append(formattedGithub);
+
+	/*
+	var formattedBlog = HTMLblog.replace("%data%", bio.contacts.blog);
+	$(".flex-item:last").append(formattedBlog);
+	*/
+
+	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+	$(".flex-item:last").append(formattedLocation);
+
+	var formattedPic = HTMLbioPic.replace("%data%", bio.picture);
+	$(".flex-item:last").append(formattedPic);
+
+	var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
+	$(".flex-item:last").append(formattedWelcome);
+
+	if(bio.skills.length > 0){
+		$("#header").append(HTMLskillsStart);
+
+		/* attempted to loop through skills... not successful haha
+		$.each(bio.skills, function(index) {
+			var formattedSkill = HTMLskills.replace("%data", index);
+		};
+		*/
+		
+		var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+		$("#header").append(formattedSkill);	
+		var formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+		$("#header").append(formattedSkill);	
+		var formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+		$("#header").append(formattedSkill);	
+		var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+		$("#header").append(formattedSkill);	
+		var formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
+		$("#header").append(formattedSkill);	
+
+		};
+
+}
 
 var education = {
 	"schools": {
@@ -32,27 +85,96 @@ var education = {
 		"dates": 2018,
 		"url": "udacity.com"
 	},
-	"display": "function"
+};
+
+education.display = function() {
+
+	var formattedschoolStart = HTMLschoolStart;
+	$("#education").append(formattedschoolStart);
+
+	var formattedschoolName = HTMLschoolName.replace("#", "http://www.northwestern.edu").replace("%data%", education.schools.name);
+	$(".education-entry").append(formattedschoolName);
+
+	var formattedschoolDegree = HTMLschoolDegree.replace("%data%", education.schools.degree);
+	$(".education-entry").append(formattedschoolDegree);
+
+	var formattedschoolDates = HTMLschoolDates.replace("%data%", education.schools.dates);
+	$(".education-entry").append(formattedschoolDates);
+
+	var formattedschoolLocation = HTMLschoolLocation.replace("%data%", education.schools.location);
+	$(".location-text").append(formattedschoolLocation);
+
+	var formattedschoolMajor = HTMLschoolMajor.replace("%data%", education.schools.majors);
+	$(".education-entry").append(formattedschoolMajor);
+
+/* below this is Udacity Information. Above this is university info.*/
 };
 
 
 var work = {
 	"jobs": {
-			"employer": "Lora Sgroi",
+			"employer": "http://www.riverratssailing.org/rrs/Lessons/",
 			"title": "Sailing Instructor",
-			"location": "Fair Haven, NJ",
+			"location": "xxxxx, NJ",
 			"dates": "June-Aug, 2013 and 2014",
 			"description": "Worked with a team"
 	},
-	"display": "function"
+};
+
+work.display = function() {
+
+	var formattedWorkStart = HTMLworkStart;
+	$("#workExperience").append(formattedWorkStart);
+
+	var formattedworkEmployer = HTMLworkEmployer.replace("%data%", work.jobs.employer);
+	$(".work-entry").append(formattedworkEmployer);
+
+	var formattedworkTitle = HTMLworkTitle.replace("%data%", work.jobs.title);
+	$(".work-entry").append(formattedworkTitle);
+
+	var formattedworkDates = HTMLworkDates.replace("%data%", work.jobs.dates);
+	$(".work-entry").append(formattedworkDates);
+
+	var formattedworkLocation = HTMLworkLocation.replace("%data%", work.jobs.location);
+	$(".work-entry").append(formattedworkLocation);
+
+	var formattedworkDescription = HTMLworkDescription.replace("%data%", work.jobs.description);
+	$(".work-entry").append(formattedworkDescription);
+
 };
 
 var projects = {
-	"title": "iTunes Album Artwork ",
+	"title": "iTunes Album Artwork",
 	"dates": "July 2015",
-	"description": "Python script reads iTunes XML, performs a google search query, and embeds images into mp3 files",
-	"display": "function"
+	"description": "Python script reads iTunes XML, performs a google search query, and embeds images into mp3 that itunes can read."
 };
 
-var formattedHeaderName = HTMLheaderName.replace("%data%", bio.name);
-$("#header").append(formattedHeaderName);
+projects.display = function () {
+
+	var formattedprojectStart = HTMLprojectStart;
+	$("#projects").append(formattedprojectStart);
+
+	var formattedprojectTitle = HTMLprojectTitle.replace("#","https://github.com/DoctaDocta/itunes-art-py").replace("%data%", projects.title);
+	$(".project-entry").append(formattedprojectTitle);
+
+	var formattedprojectData = HTMLprojectDates.replace("%data%", projects.dates);
+	$(".project-entry").append(formattedprojectData);
+
+	var formattedprojectDescription = HTMLprojectDescription.replace("%data%", projects.description);
+	$(".project-entry").append(formattedprojectDescription);
+
+
+};
+
+bio.display()
+work.display()
+education.display()
+projects.display()
+
+
+
+/* Map stuff	*/
+$("#map-div").append(map);
+
+
+
