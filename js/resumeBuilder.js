@@ -24,13 +24,13 @@ bio.display = function() {
 	$("#header").append(formattedHeaderRole);
 
 	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-	$("#topContacts").append(formattedMobile);
+	//$("#topContacts").append(formattedMobile);
 
 	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email)
-	$(".flex-item:last").append(formattedEmail);
+	//$(".flex-item:last").append(formattedEmail);
 
 	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-	$(".flex-item:last").append(formattedGithub);
+	//$(".flex-item:last").append(formattedGithub);
 
 	/*
 	var formattedBlog = HTMLblog.replace("%data%", bio.contacts.blog);
@@ -38,13 +38,18 @@ bio.display = function() {
 	*/
 
 	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-	$(".flex-item:last").append(formattedLocation);
+	//$(".flex-item:last").append(formattedLocation);
 
-	var formattedPic = HTMLbioPic.replace("%data%", bio.picture);
-	$(".flex-item:last").append(formattedPic);
+	var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
+	//$(".flex-item:last").append(formattedPic);
 
 	var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
-	$(".flex-item:last").append(formattedWelcome);
+	//$(".flex-item:last").append(formattedWelcome);
+	
+	$("#header").prepend(formattedPic);
+	$("#topContacts").append(formattedMobile).append(formattedEmail).append(formattedGithub).append(formattedLocation);
+	$("#footerContacts").append(formattedMobile).append(formattedEmail).append(formattedGithub);
+
 
 	if(bio.skills.length > 0){
 		$("#header").append(HTMLskillsStart);
@@ -56,15 +61,15 @@ bio.display = function() {
 		*/
 		
 		var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-		$("#header").append(formattedSkill);	
+		$("#skills").append(formattedSkill);	
 		var formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-		$("#header").append(formattedSkill);	
+		$("#skills").append(formattedSkill);	
 		var formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-		$("#header").append(formattedSkill);	
+		$("#skills").append(formattedSkill);	
 		var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-		$("#header").append(formattedSkill);	
+		$("#skills").append(formattedSkill);	
 		var formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
-		$("#header").append(formattedSkill);	
+		$("#skills").append(formattedSkill);	
 
 		};
 
@@ -102,7 +107,7 @@ education.display = function() {
 	$(".education-entry").append(formattedschoolDates);
 
 	var formattedschoolLocation = HTMLschoolLocation.replace("%data%", education.schools.location);
-	$(".location-text").append(formattedschoolLocation);
+	$(".education-entry").append(formattedschoolLocation);
 
 	var formattedschoolMajor = HTMLschoolMajor.replace("%data%", education.schools.majors);
 	$(".education-entry").append(formattedschoolMajor);
@@ -113,7 +118,7 @@ education.display = function() {
 
 var work = {
 	"jobs": {
-			"employer": "http://www.riverratssailing.org/rrs/Lessons/",
+			"employer": "http://www.riverratssailing.org/",
 			"title": "Sailing Instructor",
 			"location": "xxxxx, NJ",
 			"dates": "June-Aug, 2013 and 2014",
@@ -126,7 +131,7 @@ work.display = function() {
 	var formattedWorkStart = HTMLworkStart;
 	$("#workExperience").append(formattedWorkStart);
 
-	var formattedworkEmployer = HTMLworkEmployer.replace("%data%", work.jobs.employer);
+	var formattedworkEmployer = HTMLworkEmployer.replace("#", work.jobs.employer).replace("%data%", "River Rats");
 	$(".work-entry").append(formattedworkEmployer);
 
 	var formattedworkTitle = HTMLworkTitle.replace("%data%", work.jobs.title);
@@ -172,9 +177,8 @@ education.display()
 projects.display()
 
 
-
 /* Map stuff	*/
-$("#map-div").append(map);
+$("#map-div").append(googleMap);
 
 
 
