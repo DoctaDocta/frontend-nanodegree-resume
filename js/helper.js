@@ -105,8 +105,11 @@ function initializeMap() {
   var locations;
 
   var mapOptions = {
-    disableDefaultUI: true,
-    zoom: 2
+   // disableDefaultUI: true,
+    zoom: 2,
+    panControl: false,
+    zoomControl: true,
+    scaleControl: true
   };
 
   /* 
