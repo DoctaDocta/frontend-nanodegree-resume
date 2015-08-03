@@ -8,7 +8,7 @@ var bio = {
     	"email": "xxxxxxx2018@u.northwestern.edu",
     	"github": "DoctaDocta",
     	"blog": "none",
-    	"location": "Chicago"
+    	"location": "Chicago, IL"
 	},
 
 	"welcomeMessage": "Hello, thanks for visiting my website!",
@@ -120,7 +120,7 @@ var work = {
 	"jobs": {
 			"employer": "http://www.riverratssailing.org/",
 			"title": "Sailing Instructor",
-			"location": "xxxxx, NJ",
+			"location": "Fair Haven, NJ",
 			"dates": "June-Aug, 2013 and 2014",
 			"description": "Worked with a team"
 	},
