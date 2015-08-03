@@ -83,8 +83,8 @@ function logClicks(x,y) {
   console.log('x location: ' + x + '; y location: ' + y);
 }
 
-$(document).click(function(loc) {
-  // your code goes here!
+$(document).click(function(){
+  logClicks(event.pageY,event.pageY)
 });
 
 
@@ -114,7 +114,7 @@ function initializeMap() {
   */
 
 
-  map = new google.maps.Map(document.querySelector('#map-div'), mapOptions);
+  map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
 
   /*

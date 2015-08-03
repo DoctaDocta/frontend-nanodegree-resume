@@ -178,7 +178,7 @@ projects.display()
 
 
 /* Map stuff	*/
-$("#map-div").append(googleMap);
+$("#map").append(googleMap);
 
 
 
